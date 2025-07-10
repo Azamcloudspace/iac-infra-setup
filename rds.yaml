@@ -1,0 +1,39 @@
+AWSTemplateFormatVersion: '2010-09-09'
+
+Parameters:
+  DBUser:
+    Type: String
+  DBPassword:
+    Type: String
+  SecurityGroupOut:
+    Type: String
+  PrivateSubnet1Out:
+    Type: String
+  PrivateSubnet2Out: 
+    Type: String
+
+Resources:
+
+  DBSubnetGroup:
+    Type: AWS::RDS::DBSubnetGroup
+    Properties:
+      DBSubnetGroupDescription: !Sub "${DBSubnetGroup} Subnet Group"
+      SubnetIds:
+        - !Ref PrivateSubnet1Out
+        - !Ref PrivateSubnet2Out
+      Tags:
+        - Key: Name
+          Value: !Sub "${DBSubnetGroup} Subnet Group"
+
+  RDSInstance:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      DBInstanceClass: db.t3.micro
+      Engine: mysql
+      AllocatedStorage: 20
+      DBSubnetGroupName: !Ref DBSubnetGroup
+      VPCSecurityGroups:
+        - !Ref SecurityGroupOut
+      MasterUsername: !Ref DBUser
+      MasterUserPassword: !Ref DBPassword
+
