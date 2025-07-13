@@ -17,13 +17,9 @@ Resources:
   DBSubnetGroup:
     Type: AWS::RDS::DBSubnetGroup
     Properties:
-      DBSubnetGroupDescription: !Sub "${DBSubnetGroup} Subnet Group"
       SubnetIds:
         - !Ref PrivateSubnet1Out
         - !Ref PrivateSubnet2Out
-      Tags:
-        - Key: Name
-          Value: !Sub "${DBSubnetGroup} Subnet Group"
 
   RDSInstance:
     Type: AWS::RDS::DBInstance
