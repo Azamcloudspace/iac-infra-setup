@@ -31,7 +31,6 @@ Resources:
       DBInstanceClass: db.t3.micro
       Engine: mysql
       AllocatedStorage: 20
-      DBSubnetGroupName: !Ref DBSubnetGroup
       VPCSecurityGroups:
         - !Ref SecurityGroupOut
       MasterUsername: !Ref DBUser
