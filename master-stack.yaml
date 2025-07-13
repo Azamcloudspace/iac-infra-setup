@@ -51,7 +51,7 @@ Resources:
     Properties:
       TemplateURL: https://s3.amazonaws.com/iac-bucket-azamcloud/ec2.yaml
       Parameters:
-        VpcOut: !GetAtt VPCStack.Outputs.VpcOut
+        VPCOut: !GetAtt VPCStack.Outputs.VPCOut
         PublicSubnet1Out: !GetAtt VPCStack.Outputs.PublicSubnet1Out
         AMI: !Ref AMI
 
