@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: '2010-09-09'
 
 Parameters:
-  VpcOut:
+  VPCOut:
     Type: String
   PublicSubnet1Out:
     Type: String
@@ -13,7 +13,7 @@ Resources:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: Allow SSH and HTTP
-      VpcId: !Ref VpcOut
+      VpcId: !Ref VPCOut
       SecurityGroupIngress:
         - IpProtocol: tcp
           FromPort: 22
