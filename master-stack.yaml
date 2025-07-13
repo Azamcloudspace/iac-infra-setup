@@ -1,25 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
 
-Parameters:
-  VpcCIDR:
-    Type: String
-  Environment:
-    Type: String
-  PublicSubnet1CIDR:
-    Type: String
-  PublicSubnet2CIDR:
-    Type: String
-  PrivateSubnet1CIDR:
-    Type: String
-  PrivateSubnet2CIDR:
-    Type: String
-  AMI:
-    Type: String
-  DBUser:
-    Type: String
-  DBPassword:
-    Type: String
-
 Resources:
   VPCStack:
     Type: AWS::CloudFormation::Stack
