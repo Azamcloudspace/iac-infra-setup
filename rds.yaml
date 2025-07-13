@@ -17,9 +17,13 @@ Resources:
   DBSubnetGroup:
     Type: AWS::RDS::DBSubnetGroup
     Properties:
+      DBSubnetGroupDescription: "Subnet group for RDS"
       SubnetIds:
         - !Ref PrivateSubnet1Out
         - !Ref PrivateSubnet2Out
+      Tags:
+        - Key: Name
+          Value: "RDS-Subnet-Group"
 
   RDSInstance:
     Type: AWS::RDS::DBInstance
@@ -27,8 +31,12 @@ Resources:
       DBInstanceClass: db.t3.micro
       Engine: mysql
       AllocatedStorage: 20
+      DBSubnetGroupName: !Ref DBSubnetGroup
       VPCSecurityGroups:
         - !Ref SecurityGroupOut
       MasterUsername: !Ref DBUser
       MasterUserPassword: !Ref DBPassword
-
+      PubliclyAccessible: false
+      Tags:
+        - Key: Name
+          Value: "My-RDS-Instance"
