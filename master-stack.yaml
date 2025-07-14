@@ -28,9 +28,6 @@ Parameters:
   DBPassword:
     Type: String
 
-  Environment:
-    Type: String
-
 Resources:
   VPCStack:
     Type: AWS::CloudFormation::Stack
